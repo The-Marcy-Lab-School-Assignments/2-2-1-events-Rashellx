@@ -13,7 +13,9 @@ const clickCounterHandler = (element) => {
 
 };
 
-const handleKeydown = () => {
+const handleKeydown = (key) => {
+  let updateP = document.getElementById("keydown-tracker")
+  updateP.textContent = `You pressed ${key.code}`
 };
 
 // We've started this one for you
@@ -30,6 +32,7 @@ const addNewRandomNumber = () => {
 const main = () => {
   const accessButton = document.querySelector("#click-button")
   accessButton.addEventListener('click', clickCounterHandler)
+  document.body.addEventListener("keydown", handleKeydown)
   const delegationContainer = document.querySelector('#delegation');
   delegationContainer.addEventListener('click', handleDelegation);
 
